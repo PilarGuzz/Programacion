@@ -9,5 +9,9 @@ public class NotaAlarmaException extends RuntimeException{
 	public NotaAlarmaException(String mensaje, Throwable lanzable) {
 		super(mensaje, lanzable);
 	}
+	
+	public NotaAlarmaException(String mensaje) {
+		
+	}
 
 }
