@@ -1,5 +1,7 @@
 package com.jacaranda.bloc;
 
+import java.util.Arrays;
+
 import com.jacaranda.notas.Activable;
 import com.jacaranda.notas.BlocException;
 import com.jacaranda.notas.Nota; 
@@ -28,6 +30,14 @@ public class Bloc {
 	public String getNombre() {
 		return nombre;
 	}
+	
+//	public String getNota(int numNota) {
+//		String resulta = "";
+//		if (numNota<NUMERO_NOTAS_MAXIMA && numNota>0) {
+//			
+//			
+//		}
+//	}
 	
 	public void activa(int posicion) {
 		
@@ -81,6 +91,33 @@ public class Bloc {
 		throw new BlocException("Posicion fuera del limite");
 	}
 		
+	}
+	
+	public Nota[] ordenarNotas() {
+		
+				
+		Nota[] notasOrdenadas = new Nota[contarNotasNoNulas()];
+		
+		int contadorNotasOrdenadas = 0;
+		
+		for(int i = 0; i< this.notas.length;i++) {
+			if(this.notas[i]!=null) {
+				notasOrdenadas[contadorNotasOrdenadas++] = this.notas[i];
+			}
+		}
+		
+		Arrays.sort(notasOrdenadas);
+		return notasOrdenadas;
+	}
+
+	private int contarNotasNoNulas() {
+		int contadorNotas = 0;
+		for(int i = 0; i< this.notas.length;i++) {
+			if(this.notas[i]!=null) {
+				contadorNotas++;
+			}
+		}
+		return contadorNotas;
 	}
 	
 

@@ -107,9 +107,20 @@ public class Nota implements Comparable<Nota>{
 
 
 	@Override
-	public int compareTo(Nota o) {
-		
-		return this.getFechaCreacion().compareTo(o.getFechaCreacion());
+	public int compareTo(Nota otraNota) {
+		int result = 0;
+		if (otraNota != null) {
+			if (this.fechaCreacion.isBefore(otraNota.getFechaCreacion())) {
+				result = -1;
+				
+			}else if (this.fechaCreacion.isAfter(otraNota.getFechaCreacion())) {
+				result = 1;
+			}
+		}
+		return result;
+		//return this.getFechaCreacion().compareTo(otraNota.getFechaCreacion());
+		//return this.getTexto().compareTo(otraNota.getTexto()); comparando por texto
+
 	}
 
 }

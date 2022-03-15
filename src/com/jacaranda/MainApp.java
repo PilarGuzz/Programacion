@@ -13,7 +13,8 @@ public class MainApp {
 			+"1. Crear nota \n"
 			+"2. Crear nota alarma \n"
 			+"3. Modificar nota \n"
-			+"4. Salir \n";
+			+"4. Ordenar notas \n"
+			+"5. Salir \n";
 	
 	private static  Scanner sc = new Scanner(System.in);
 	
@@ -24,12 +25,24 @@ public class MainApp {
 		int opcion = Integer.valueOf(sc.nextLine());
 		Bloc bloc = new Bloc("Bloc de pruebas");
 		
-		while (opcion !=4) {
+		while (opcion != 5) {
 			if(opcion==1) {
 				System.out.println("Introduzca el texto a incluir");
 				String texto = sc.nextLine();
 				Nota n = new Nota(texto);
 				bloc.addNota(n);
+			}else if (opcion == 2) {
+				bloc.ordenarNotas();
+				
+			}else if (opcion == 4) {
+				for(Nota n: bloc.ordenarNotas()) {
+					System.out.println(n);
+				}
+//				
+//				Nota[] notasOrdenadas = bloc.ordenarNotas();
+//				for(int i = 0; i< notasOrdenadas.length; i++) {
+//					System.out.println(notasOrdenadas[i]);
+//				}
 			}
 			
 			imprimirMenuPrincipal();
