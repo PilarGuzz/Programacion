@@ -2,7 +2,7 @@ package com.rec.model;
 
 import java.time.LocalDate;
 
-public class Candidate{
+public abstract class Candidate implements Comparable<Candidate>{
 	
 	
 	private LocalDate dateOfBirth;
@@ -18,6 +18,12 @@ public class Candidate{
 	public Candidate(String dni, String name) { //Crea candidatos
 		this.dni = dni;
 		this.name = name;
+	}
+	
+	public abstract Double computeGrossSalary(); 
+	
+	public int compareTo(Candidate o) {
+		return 0;
 	}
 
 }
